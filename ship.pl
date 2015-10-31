@@ -9,7 +9,7 @@ $shp=4; #The length of the ship
 $drc=0; # Direction : 0=horizontal / 1=vertical
 
 for ($i=1; $i<=$num; $i++) {
- $cel[$i-1] = "~" ;
+ $cel[$i-1] = "~" ;     #Bulding the waves!
 }
 
 
@@ -27,7 +27,7 @@ for ($j=0; $j<$num; $j+=$col) {
     $dpt= $rnd3 + $rnd2;
   }
 
- for ($k=$dpt; $k<($dpt+$shp); $k++) {   # bulding ship mould
+ for ($k=$dpt; $k<($dpt+$shp); $k++) {   #Bulding ship shape
  $cel[$k]= "#"
 }
 
