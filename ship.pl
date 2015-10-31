@@ -24,7 +24,7 @@ for ($j=0; $j<$num; $j+=$col) {
     $rnd3= int(rand($j));
     }while($rnd3 % $col != 0) ;
    
-    $dpt= $rnd3 + $rnd2;
+    $dpt= $rnd3 + $rnd2;      #Draw Point
   }
 
  for ($k=$dpt; $k<($dpt+$shp); $k++) {   #Bulding ship shape
