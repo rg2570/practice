@@ -20,8 +20,8 @@ $spt = $row - $shp + 1 ; # Max start point on eache column
 $rnd2=int(rand($spt*$col));
 
 for ($k=1; $k<=$shp; $k++){
+ $cel[$rnd2]="#";
  $rnd2+=$col;
- $cel[$rnd2]="#"
 }
 }
 
