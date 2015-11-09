@@ -4,18 +4,19 @@ $col=10;
 $row=10;
 $num=$col * $row;
 
-$shp=4; #The length of the ship
+$shph=int(rand(4)) + 3; #The length of the ship horizontal
+$shpv=int(rand(4)) +3; #Length of vertical ship
 
 $drc=0; # Direction : 0=horizontal / 1=vertical
 
 for ($i=1; $i<=$num; $i++) {
- $cel[$i-1] = "~" ;     #Bulding the waves!
+ $cel[$i-1] = "~ " ;     #Bulding the waves!
 }
 
 
 sub HBuilder{
 
-$spt = $col - $shp; #Max Start Point on each row
+$spt = $col - $shph; #Max Start Point on each row
 
 for ($j=0; $j<$num; $j+=$col) {
     $rnd2= int(rand($spt));
@@ -27,15 +28,15 @@ for ($j=0; $j<$num; $j+=$col) {
     $dpt= $rnd3 + $rnd2;      #Draw Point
   }
 
- for ($k=$dpt; $k<($dpt+$shp); $k++) {   #Bulding ship shape
- $cel[$k]= "#"
+ for ($k=$dpt; $k<($dpt+$shph); $k++) {   #Bulding ship shape
+ $cel[$k]= "# "
 }
 
 }
 
 
 sub VBuilder{
-	$spt = $row - $shp + 1 ; # Max start point on eache column
+	$spt = $row - $shpv + 1 ; # Max start point on eache column
 
 
 	my @pnt;
@@ -44,16 +45,16 @@ sub VBuilder{
 	while( 1 ) { 
 		$rnd2=int(rand($spt*$col));
 		$i = 0;
-		for ($i=0; $i<$shp; $i++) {
+		for ($i=0; $i<$shpv; $i++) {
 	 		$fnd = $rnd2 + $col*$i ;
-			if ($cel[$fnd] eq "~"){
+			if ($cel[$fnd] eq "~ "){
 				$pnt[$i] = $fnd ;
 			}else{
 				last ; 
 	 		}
 		}
 		
-		if( $i == $shp ) {
+		if( $i == $shpv ) {
 		
 			last; 
 		} 
@@ -61,7 +62,7 @@ sub VBuilder{
 	}
 
 	foreach $s (@pnt){
-		$cel[$s] = "#" ;
+		$cel[$s] = "# " ;
     }
 } 
 
