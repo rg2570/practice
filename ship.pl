@@ -52,13 +52,12 @@ sub VBuilder{
 				last ; 
 	 		}
 		}
-		# print "i: $i\n";
+		
 		if( $i == $shp ) {
-			# print "Success";
+		
 			last; 
-		} else {
-			# print "Retry";
-		}
+		} 
+		
 	}
 
 	foreach $s (@pnt){
