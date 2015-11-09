@@ -13,7 +13,7 @@ for ($i=1; $i<=$num; $i++) {
 }
 
 
-sub Builder{
+sub HBuilder{
 
 $spt = $col - $shp; #Max Start Point on each row
 
@@ -33,7 +33,44 @@ for ($j=0; $j<$num; $j+=$col) {
 
 }
 
-Builder();
+
+sub VBuilder{
+	$spt = $row - $shp + 1 ; # Max start point on eache column
+
+
+	my @pnt;
+	my $fnd ;
+	$lnt = @pnt ;
+	while( 1 ) { 
+		$rnd2=int(rand($spt*$col));
+		$i = 0;
+		for ($i=0; $i<$shp; $i++) {
+	 		$fnd = $rnd2 + $col*$i ;
+			if ($cel[$fnd] eq "~"){
+				$pnt[$i] = $fnd ;
+			}else{
+				last ; 
+	 		}
+		}
+		# print "i: $i\n";
+		if( $i == $shp ) {
+			# print "Success";
+			last; 
+		} else {
+			# print "Retry";
+		}
+	}
+
+	foreach $s (@pnt){
+		$cel[$s] = "#" ;
+    }
+} 
+
+
+HBuilder();
+VBuilder();
+
+
 
 for ($z=0; $z<=($num-$col); $z+=$col) {
  for($k=0; $k<$col; $k++) {
