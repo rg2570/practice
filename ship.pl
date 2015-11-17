@@ -4,8 +4,14 @@ $col=10;
 $row=10;
 $num=$col * $row;
 
-$shph=int(rand(4)) + 3; #The length of the ship horizontal
-$shpv=int(rand(4)) +3; #Length of vertical ship
+
+print "Enter the length of the horizontal ship (3-6): \n" ;
+my $shph=<STDIN> ;
+print "Enter the length of the vertical ship (3-6): \n" ;
+my $shpv= <STDIN> ;
+
+# $shph=int(rand(4)) + 3; #The length of the ship horizontal
+# $shpv=int(rand(4)) + 3; #Length of vertical ship
 
 $drc=0; # Direction : 0=horizontal / 1=vertical
 
@@ -29,7 +35,7 @@ for ($j=0; $j<$num; $j+=$col) {
   }
 
  for ($k=$dpt; $k<($dpt+$shph); $k++) {   #Bulding ship shape
- $cel[$k]= "# "
+ $cel[$k]= "# " ;
 }
 
 }
@@ -78,42 +84,3 @@ for ($z=0; $z<=($num-$col); $z+=$col) {
  }
   print "\n" ;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
