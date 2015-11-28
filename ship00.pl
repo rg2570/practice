@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 # ship00.pl
 
-$col=8;
-$row=8;
+$col=10;
+$row=10;
 $shp=5;
 
 sub findArea {
@@ -67,23 +67,35 @@ sub fillArea {
 	}
 }
 
-print "START\n";
+#print "START\n";
 
 @area = mkArea( $col , $row ) ;
 
 # print "  @area \n";
 
-printArea($col, @area);
+#printArea($col, @area);
 
-@one = findArea(2,5,1,@area);
-print "One: @one\n";
+
+for ($p=0; $p<2;$p++) {
+my $ab=int(rand($col)) ;
+my $sze=int(rand(4)) + 3 ; #Size of ship
+my $cd=int(rand($col-$sze)) + 1 ;
+my $pnt= $cd + $ab*$col ;
+
+@one = findArea($pnt,$sze,1,@area);
+#print "One: @one\n";
 fillArea(\@area, \@one, "H ");
+#printArea($col, @area);
+}
+
+for ($q=0; $q<2; $q++) {
+my $sze2= int(rand(4)) + 3;
+my $pnt2= int(rand(($col-$sze2)*$col + $col)) ;
+
+@two = findArea($pnt2,$sze2,$col,@area);
+#print "Tow: @two\n";
+fillArea(\@area, \@two, "V "); }
 printArea($col, @area);
 
-@two = findArea(1,2,8,@area);
-print "Tow: @two\n";
-fillArea(\@area, \@two, "V ");
-printArea($col, @area);
 
-
-print "END\n";
+#print "END\n";
